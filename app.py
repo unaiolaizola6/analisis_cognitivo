@@ -103,5 +103,5 @@ similarities2 = []
 for idx,answer in enumerate(person1_answers[:-1]):
     similarities2.append(cosine_sim_vectors(vectors2[-1], vectors2[idx]))
 
-st.header("Person1")    
+st.header("Person 1")    
 st.line_chart(data=similarities2)
