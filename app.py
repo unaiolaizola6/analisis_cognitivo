@@ -32,7 +32,6 @@ person1_answers = []
 for index, row in data.iterrows():
     if row["DNI"] == "72838728M":
         person1_answers.append(str((row["objeto_si"])))
-st.text(st.write(person1_answers))
 a = """
     Un grado superior de desarrollo de aplicaciones web tiene como objetivo formar a profesionales capacitados para diseñar, desarrollar, implementar y mantener aplicaciones web, tanto en el ámbito empresarial como en el de los servicios y el comercio electrónico. Algunos de los objetivos específicos del grado superior en desarrollo de aplicaciones web pueden incluir:
 
@@ -63,7 +62,6 @@ Capacidad para comunicar y presentar de forma efectiva el trabajo desarrollado.
 #TOKENIZAR MENSAJE Y AÑADIR NUEVA FRASE
 text = a.lower()
 sent_tokens = nltk.sent_tokenize(text)
-st.text(st.write(text))
 stopwords = stopwords.words('spanish')
 
 
