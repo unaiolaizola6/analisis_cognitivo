@@ -10,10 +10,11 @@ from sklearn.metrics.pairwise import cosine_similarity
 import pandas as pd
 import requests
 import cgi
+form = cgi.FieldStorage()
 
 resp = requests.post('http://analisis-metacognitivo2.aegcloud.pro')
 
-st.write(resp)
+st.write(form[form[0].value)
 
 #LEER Y CLASIFICAR LAS RESPUESTAS
 data = pd.read_csv(r'objeto_si.csv')
