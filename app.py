@@ -9,9 +9,8 @@ from nltk.corpus import stopwords
 from sklearn.metrics.pairwise import cosine_similarity
 import pandas as pd
 import requests
-import cgi
-form = cgi.FieldStorage()
-st.write(form["nombre"])
+
+st.write(requests.POST["nombre"])
 
 resp = requests.post('http://analisis-metacognitivo2.aegcloud.pro/')
 
