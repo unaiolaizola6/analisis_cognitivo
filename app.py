@@ -14,7 +14,7 @@ form = cgi.FieldStorage()
 
 resp = requests.post('http://analisis-metacognitivo2.aegcloud.pro')
 
-st.write(form[form[0].value)
+st.write(form[form[0]].value)
 
 #LEER Y CLASIFICAR LAS RESPUESTAS
 data = pd.read_csv(r'objeto_si.csv')
