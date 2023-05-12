@@ -9,15 +9,14 @@ from nltk.corpus import stopwords
 from sklearn.metrics.pairwise import cosine_similarity
 import pandas as pd
 import requests
-from flask import Flask, request
 
-app = Flask(__name__)
-
-@app.route('/publicar', methods=['POST'])
-def publicar():
-    titulo = request.form['nombre']
-    st.write("Título:", titulo)
-st.write(__name__)
+def main():
+    if st.server.request.method == "POST":
+        nombre = st.server.request.form["nombre"]
+        st.write(nombre)
+        
+if __name__ == "__main__":
+    main()
 
 #LEER Y CLASIFICAR LAS RESPUESTAS
 data = pd.read_csv(r'objeto_si.csv')
