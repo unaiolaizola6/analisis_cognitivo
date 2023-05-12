@@ -11,7 +11,7 @@ import pandas as pd
 import requests
 
 
-st.write(requests)
+st.write(requests.post["nombre"])
 
 resp = requests.post('http://analisis-metacognitivo2.aegcloud.pro/')
 
