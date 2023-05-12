@@ -12,7 +12,7 @@ import requests
 
 import cgi
 form = cgi.FieldStorage()
-st.write(form["nombre"])
+st.write(form)
 
 resp = requests.post('http://analisis-metacognitivo2.aegcloud.pro/')
 
