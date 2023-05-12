@@ -11,6 +11,8 @@ import pandas as pd
 import requests
 from flask import Flask, request
 
+app = Flask(__name__)
+
 @app.route('/publicar', methods=['POST'])
 def publicar():
     titulo = request.form['nombre']
