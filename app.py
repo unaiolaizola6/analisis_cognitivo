@@ -12,6 +12,9 @@ import requests
 from flask import Flask, request
 
 @app.route('/publicar', methods=['POST'])
+def publicar():
+    titulo = request.form['nombre']
+    st.write("Título:", titulo)
 
 #LEER Y CLASIFICAR LAS RESPUESTAS
 data = pd.read_csv(r'objeto_si.csv')
