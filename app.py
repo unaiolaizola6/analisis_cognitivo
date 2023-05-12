@@ -13,10 +13,13 @@ from flask import Flask, request
 
 app = Flask(__name__)
 
-@app.route('/publicar', methods=['POST'])
-nombre = request.form['nombre']
-st.write(nombre)
-return "exito"
+@app.route('/procesar', methods=['POST'])
+def procesar():
+    nombre = request.form['nombre']
+    st.write("Nombre: ",nombre)
+    
+if __name__ == '__main__':
+    app.run(port=8501)
     
 #LEER Y CLASIFICAR LAS RESPUESTAS
 data = pd.read_csv(r'objeto_si.csv')
