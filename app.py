@@ -21,7 +21,7 @@ def procesar():
     # Redirigir a la página de Streamlit
     return render_template('streamlit_redirect.html')
 
-@st.cache
+@st.cache_data
 def main():
     st.title("Aplicación Streamlit")
     st.write("Esta es la página principal de la aplicación Streamlit.")
