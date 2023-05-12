@@ -11,9 +11,7 @@ import pandas as pd
 import requests
 from flask import Flask, request
 
-resp = requests.post('http://analisis-metacognitivo2.aegcloud.pro/')
-
-st.write(resp)
+@app.route('/publicar', methods=['POST'])
 
 #LEER Y CLASIFICAR LAS RESPUESTAS
 data = pd.read_csv(r'objeto_si.csv')
