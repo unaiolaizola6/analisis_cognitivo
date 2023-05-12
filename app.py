@@ -11,8 +11,8 @@ import pandas as pd
 import requests
 
 def main():
-    if st.server.request.method == "POST":
-        nombre = st.server.request.form["nombre"]
+    if st.request.method == "POST":
+        nombre = st.request.form["nombre"]
         st.write(nombre)
         
 if __name__ == "__main__":
