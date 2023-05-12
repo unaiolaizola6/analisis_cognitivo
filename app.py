@@ -11,12 +11,7 @@ import pandas as pd
 import requests
 from flask import Flask, request
 
-app = Flask(__name__)
 
-@app.route('http://analisis-metacognitivo2.aegcloud.pro/analisis/procesar', methods=['POST'])
-def procesar():
-    nombre = request.form['nombre']
-    st.write("Nombre: ",nombre)
     
 #LEER Y CLASIFICAR LAS RESPUESTAS
 data = pd.read_csv(r'objeto_si.csv')
