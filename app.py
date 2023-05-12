@@ -18,7 +18,6 @@ def procesar():
     nombre = request.form['nombre']
     st.write("Nombre: ",nombre)
     
-@st.cache
 def main():
     st.title("Aplicación Streamlit")
     st.write("Esta es la página principal de la aplicación Streamlit.")
