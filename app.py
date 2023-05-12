@@ -10,7 +10,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 import pandas as pd
 import requests
 
-resp = requests.get('http://analisis-metacognitivo2.aegcloud.pro/')
+resp = requests.post('http://analisis-metacognitivo2.aegcloud.pro/')
 
 st.write(resp)
 
