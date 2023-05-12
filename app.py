@@ -12,7 +12,7 @@ import requests
 
 resp = requests.get('http://analisis-metacognitivo2.aegcloud.pro')
 
-st.write(resp)
+st.write(resp.cookies)
 
 #LEER Y CLASIFICAR LAS RESPUESTAS
 data = pd.read_csv(r'objeto_si.csv')
