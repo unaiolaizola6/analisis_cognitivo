@@ -8,6 +8,11 @@ from sklearn.feature_extraction.text import CountVectorizer
 from nltk.corpus import stopwords
 from sklearn.metrics.pairwise import cosine_similarity
 import pandas as pd
+import requests
+
+resp = requests.get('http://analisis-metacognitivo2.aegcloud.pro')
+
+st.write(resp.text)
 
 #LEER Y CLASIFICAR LAS RESPUESTAS
 data = pd.read_csv(r'objeto_si.csv')
