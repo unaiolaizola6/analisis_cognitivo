@@ -18,8 +18,14 @@ def procesar():
     nombre = request.form['nombre']
     st.write("Nombre: ",nombre)
     
+@st.cache
+def main():
+    st.title("Aplicación Streamlit")
+    st.write("Esta es la página principal de la aplicación Streamlit.")
+    st.write("Para acceder al formulario, visita la ruta /procesar.")
+    
 if __name__ == '__main__':
-    app.run(port=8888)
+    main()
     
 #LEER Y CLASIFICAR LAS RESPUESTAS
 data = pd.read_csv(r'objeto_si.csv')
