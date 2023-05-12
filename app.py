@@ -17,7 +17,8 @@ app = Flask(__name__)
 def publicar():
     nombre = request.form['nombre']
     st.write(nombre)
-
+    return "exito"
+    
 #LEER Y CLASIFICAR LAS RESPUESTAS
 data = pd.read_csv(r'objeto_si.csv')
 adfin_answers, asir_answers, daw_answers, mark_answers, patro_answers, vestu_answers = [], [], [], [], [], []
