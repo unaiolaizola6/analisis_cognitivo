@@ -13,7 +13,7 @@ from flask import Flask, request
 
 app = Flask(__name__)
 
-@app.route('/http://analisis-metacognitivo2.aegcloud.pro/analisis/procesar', methods=['POST'])
+@app.route('http://analisis-metacognitivo2.aegcloud.pro/analisis/procesar', methods=['POST'])
 def procesar():
     nombre = request.form['nombre']
     st.write("Nombre: ",nombre)
