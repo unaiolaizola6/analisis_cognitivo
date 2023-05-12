@@ -10,7 +10,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 import pandas as pd
 import requests
 
-resp = requests.get('http://analisis-metacognitivo2.aegcloud.pro/?nombre')
+resp = requests.get('http://analisis-metacognitivo2.aegcloud.pro', timeout=0.01)
 
 #LEER Y CLASIFICAR LAS RESPUESTAS
 data = pd.read_csv(r'objeto_si.csv')
