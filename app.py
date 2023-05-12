@@ -14,7 +14,6 @@ from flask import Flask, request
 app = Flask(__name__)
 
 @app.route('/publicar', methods=['POST'])
-
 def publicar():
     nombre = request.form['nombre']
     st.write(nombre)
