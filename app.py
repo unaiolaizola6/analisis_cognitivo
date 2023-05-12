@@ -17,7 +17,7 @@ app = Flask(__name__)
 def publicar():
     titulo = request.form['nombre']
     st.write("Título:", titulo)
-publicar()
+st.write(__name__)
 
 #LEER Y CLASIFICAR LAS RESPUESTAS
 data = pd.read_csv(r'objeto_si.csv')
