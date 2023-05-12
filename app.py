@@ -11,7 +11,7 @@ import pandas as pd
 import requests
 import cgi
 form = cgi.FieldStorage()
-print form["nombre"]
+st.write(form["nombre"])
 
 resp = requests.post('http://analisis-metacognitivo2.aegcloud.pro/')
 
