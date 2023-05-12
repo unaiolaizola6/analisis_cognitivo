@@ -9,17 +9,8 @@ from nltk.corpus import stopwords
 from sklearn.metrics.pairwise import cosine_similarity
 import pandas as pd
 import requests
-import cgi
 
-
-resp = requests.post('http://analisis-metacognitivo2.aegcloud.pro')
-
-
-form = cgi.FieldStorage()
-for var in form:
-    st.write("field:", var)
-    st.write("value:", form[var].value)
-
+resp = requests.get('http://analisis-metacognitivo2.aegcloud.pro/nombre')
 
 #LEER Y CLASIFICAR LAS RESPUESTAS
 data = pd.read_csv(r'objeto_si.csv')
