@@ -8,17 +8,21 @@ from sklearn.feature_extraction.text import CountVectorizer
 from nltk.corpus import stopwords
 from sklearn.metrics.pairwise import cosine_similarity
 import pandas as pd
-import urllib.parse
 
-# Obtener la URL actual
-url = st.experimental_get_query_params()
+@st.cache
+def get_data():
+    return []
 
-# Obtener el valor del parámetro 'dato'
-dato = urllib.parse.unquote(url['dato'][0]) if 'dato' in url else None
+def procesar():
+    if st.request.method == 'POST':
+        dato = st.request.form.get('dato')
+        if dato:
+            data = get_data()
+            data.append(dato)
+            st.write(f'Dato recibido: {dato}')
 
-# Mostrar el valor en Streamlit
-if dato:
-    st.write(f'Dato recibido: {dato}')
+if __name__ == '__main__':
+    procesar()
 
     
 #LEER Y CLASIFICAR LAS RESPUESTAS
