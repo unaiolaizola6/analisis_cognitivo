@@ -8,21 +8,13 @@ from sklearn.feature_extraction.text import CountVectorizer
 from nltk.corpus import stopwords
 from sklearn.metrics.pairwise import cosine_similarity
 import pandas as pd
+from flask import Flask, request
 
-@st.cache
-def get_data():
-    return []
-
-def procesar():
-    if st.request.method == 'POST':
-        dato = st.request.form.get('dato')
-        if dato:
-            data = get_data()
-            data.append(dato)
-            st.write(f'Dato recibido: {dato}')
-
-if __name__ == '__main__':
-    procesar()
+app = Flask(__name__)
+@app.route('/', methods=['POST'])
+def result():
+    st.write(request.form['foo']) # should display 'bar'
+    return 'Received !' # response to your request.
 
     
 #LEER Y CLASIFICAR LAS RESPUESTAS
