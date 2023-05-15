@@ -8,7 +8,19 @@ from sklearn.feature_extraction.text import CountVectorizer
 from nltk.corpus import stopwords
 from sklearn.metrics.pairwise import cosine_similarity
 import pandas as pd
+from flask import Flask, request
 
+app = Flask(__name__)
+
+@app.route('/procesar', methods=['POST'])
+def procesar():
+    dato = request.form.get('dato')
+    # Aquí puedes procesar el dato recibido
+    # por ejemplo, imprimirlo en Streamlit
+    st.write(f'Dato recibido: {dato}')
+
+if __name__ == '__main__':
+    app.run()
 
     
 #LEER Y CLASIFICAR LAS RESPUESTAS
