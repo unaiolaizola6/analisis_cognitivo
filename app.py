@@ -8,27 +8,6 @@ from sklearn.feature_extraction.text import CountVectorizer
 from nltk.corpus import stopwords
 from sklearn.metrics.pairwise import cosine_similarity
 import pandas as pd
-import requests
-from flask import Flask, request, render_template
-
-app = Flask(__name__)
-
-@app.route('/procesar', methods=['POST'])
-def procesar():
-    nombre = request.form['nombre']
-    # Procesar los datos recibidos como lo desees
-    
-    # Redirigir a la página de Streamlit
-    return render_template('streamlit_redirect.html')
-
-@st.cache_data
-def main():
-    st.title("Aplicación Streamlit")
-    st.write("Esta es la página principal de la aplicación Streamlit.")
-
-if __name__ == '__main__':
-    main()
-    app.run(port=8501)
 
 
     
