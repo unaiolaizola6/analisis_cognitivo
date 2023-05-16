@@ -15,7 +15,8 @@ app = Flask(__name__)
 def result():
     st.write(request.form['foo']) # should display 'bar'
     return 'Received !' # response to your request.
-app.run
+
+app.run()
     
 #LEER Y CLASIFICAR LAS RESPUESTAS
 data = pd.read_csv(r'objeto_si.csv')
