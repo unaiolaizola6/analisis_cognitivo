@@ -9,11 +9,8 @@ from nltk.corpus import stopwords
 from sklearn.metrics.pairwise import cosine_similarity
 import pandas as pd
 import requests
-url = 'https://www.w3schools.com/python/demopage.php'
-myobj = {'somekey': 'somevalue'}
-x = requests.post(url, data = myobj)
-st.write(x.text)
 
+st.write(requests.post("https://analisis-metacognitivo2.aegcloud.pro/analisis")
     
 #LEER Y CLASIFICAR LAS RESPUESTAS
 data = pd.read_csv(r'objeto_si.csv')
