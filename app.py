@@ -14,7 +14,7 @@ data = {'foo': 'valor'}
 
 response = requests.post(url, data=data)
 
-st.write(response.text)
+st.write(response.json())
     
 #LEER Y CLASIFICAR LAS RESPUESTAS
 data = pd.read_csv(r'objeto_si.csv')
