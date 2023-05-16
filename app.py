@@ -7,6 +7,7 @@ from nltk.corpus import stopwords
 from sklearn.metrics.pairwise import cosine_similarity
 import pandas as pd
 import requests
+from bs4 import BeautifulSoup
 
 url = 'https://analisis-metacognitivo2.aegcloud.pro/'
 
@@ -17,7 +18,9 @@ response = requests.post(url, data=data)
 if response.status_code == 200:
     print('Solicitud POST exitosa')
     print('Contenido de la respuesta:')
-    st.write(response.text)
+    html = response.text
+    # Utiliza BeautifulSoup para analizar el HTML y extraer los datos necesarios
+    soup = BeautifulSoup(html, 'html.parser')
 else:
     print('Error en la solicitud POST:', response.status_code)
     
