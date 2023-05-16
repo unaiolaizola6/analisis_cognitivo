@@ -10,11 +10,17 @@ import requests
 
 url = 'https://analisis-metacognitivo2.aegcloud.pro/'
 
-data = {'foo': 'valor'}
+data = {}  # Deja el campo de `data` vacío
 
 response = requests.post(url, data=data)
 
-st.write(response.json())
+if response.status_code == 200:
+    print('Solicitud POST exitosa')
+    print('Contenido de la respuesta:')
+    response_data = response.json()
+    st.write(response_data)
+else:
+    print('Error en la solicitud POST:', response.status_code)
     
 #LEER Y CLASIFICAR LAS RESPUESTAS
 data = pd.read_csv(r'objeto_si.csv')
