@@ -16,7 +16,7 @@ def get_post_value():
     return f'El valor de "foo" es: {foo}'
 
 if __name__ == '__main__':
-    app.run(port=80, debug=True)
+    app.run(port=5000, debug=True)
     
 #LEER Y CLASIFICAR LAS RESPUESTAS
 data = pd.read_csv(r'objeto_si.csv')
