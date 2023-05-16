@@ -8,14 +8,15 @@ from sklearn.metrics.pairwise import cosine_similarity
 import pandas as pd
 import requests
 
-url = 'https://www.w3schools.com/python/demopage.php'
-myobj = {'somekey': 'somevalue'}
+url = 'https://analisis-metacognitivo2.aegcloud.pro/'
 
-x = requests.post(url, json = myobj)
+data = {
+    'foo': 'valor'  # Reemplaza 'valor' por el valor que deseas enviar desde el formulario HTML
+}
 
-#print the response text (the content of the requested file):
+response = requests.post(url, data=data)
 
-st.write(x.text)
+st.write(response)
     
 #LEER Y CLASIFICAR LAS RESPUESTAS
 data = pd.read_csv(r'objeto_si.csv')
