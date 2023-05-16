@@ -8,6 +8,11 @@ from sklearn.feature_extraction.text import CountVectorizer
 from nltk.corpus import stopwords
 from sklearn.metrics.pairwise import cosine_similarity
 import pandas as pd
+import requests
+url = 'https://www.w3schools.com/python/demopage.php'
+myobj = {'somekey': 'somevalue'}
+x = requests.post(url, data = myobj)
+st.write(x.text)
 
     
 #LEER Y CLASIFICAR LAS RESPUESTAS
