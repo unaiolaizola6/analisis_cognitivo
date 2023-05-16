@@ -6,24 +6,18 @@ from sklearn.feature_extraction.text import CountVectorizer
 from nltk.corpus import stopwords
 from sklearn.metrics.pairwise import cosine_similarity
 import pandas as pd
-import requests
+from flask import request
 
 st.title('Aplicación de Streamlit')
 
-# Mostrar el formulario en Streamlit
-foo_value = st.text_input('Ingrese un valor')
+# Obtener el valor de 'foo' de la solicitud POST
+foo_value = request.form.get('foo')
 
-# Enviar el POST al servidor y obtener la respuesta
-if st.button('EVOLUCIÓN'):
-    url = 'https://unaiolaizola6-analisis-cognitivo-app-x1pgtf.streamlit.app/'
-    payload = {'foo': foo_value}
-    response = requests.post(url, data=payload)
-    
-    # Mostrar el valor de 'foo' en Streamlit
-    if response.status_code == 200:
-        st.write(f'El valor de foo es: {response.text}')
-    else:
-        st.write('Error al procesar la solicitud')
+# Mostrar el valor de 'foo' en Streamlit
+if foo_value:
+    st.write(f'El valor de foo es: {foo_value}')
+else:
+    st.write('Esperando el valor de foo...')
     
 #LEER Y CLASIFICAR LAS RESPUESTAS
 data = pd.read_csv(r'objeto_si.csv')
