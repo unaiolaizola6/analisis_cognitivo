@@ -1,5 +1,4 @@
 from pyChatGPT import ChatGPT 
-import streamlit as st
 import nltk
 nltk.download('punkt')
 nltk.download('stopwords')
@@ -13,14 +12,14 @@ from flask import Flask, request
 app = Flask(__name__)
 @app.route('/https://analisis-metacognitivo2.aegcloud.pro/analisis', methods=['POST'])
 def result():
-    st.write("resultado:")
-    st.write(request.form.get['foo']) # should display 'bar'
+    print("resultado:")
+    print(request.form.get['foo']) # should display 'bar'
     return 'Received !' # response to your request.
 
 if __name__=='__main__':
-   app.run(debug=True, port=8083)
+   app.run(debug=True)
 
-st.write("prueba")
+print("prueba")
     
 #LEER Y CLASIFICAR LAS RESPUESTAS
 data = pd.read_csv(r'objeto_si.csv')
