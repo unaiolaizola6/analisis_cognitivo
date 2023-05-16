@@ -1,8 +1,6 @@
 from pyChatGPT import ChatGPT 
 import streamlit as st
 import nltk
-nltk.download('punkt')
-nltk.download('stopwords')
 import string
 from sklearn.feature_extraction.text import CountVectorizer
 from nltk.corpus import stopwords
