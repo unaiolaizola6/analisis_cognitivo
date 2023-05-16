@@ -17,8 +17,7 @@ response = requests.post(url, data=data)
 if response.status_code == 200:
     print('Solicitud POST exitosa')
     print('Contenido de la respuesta:')
-    response_data = response.json()
-    st.write(response_data)
+    st.write(response.text)
 else:
     print('Error en la solicitud POST:', response.status_code)
     
