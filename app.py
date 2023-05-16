@@ -10,9 +10,7 @@ import requests
 
 url = 'https://analisis-metacognitivo2.aegcloud.pro/'
 
-data = {
-    'foo': 'valor'  # Reemplaza 'valor' por el valor que deseas enviar desde el formulario HTML
-}
+data = {}
 
 response = requests.post(url, data=data)
 
