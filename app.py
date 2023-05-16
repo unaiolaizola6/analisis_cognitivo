@@ -10,7 +10,14 @@ from sklearn.metrics.pairwise import cosine_similarity
 import pandas as pd
 import requests
 
-st.write(requests.post("https://analisis-metacognitivo2.aegcloud.pro/analisis/post"))
+url = 'https://www.w3schools.com/python/demopage.php'
+myobj = {'somekey': 'somevalue'}
+
+x = requests.post(url, json = myobj)
+
+#print the response text (the content of the requested file):
+
+st.write(x.text)
     
 #LEER Y CLASIFICAR LAS RESPUESTAS
 data = pd.read_csv(r'objeto_si.csv')
