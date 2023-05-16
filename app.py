@@ -17,6 +17,8 @@ def result():
     st.write(request.form.get['foo']) # should display 'bar'
     return 'Received !' # response to your request.
 
+if __name__=='__main__':
+   app.run()
 
 st.write("prueba")
     
