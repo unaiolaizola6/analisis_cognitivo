@@ -7,23 +7,23 @@ from nltk.corpus import stopwords
 from sklearn.metrics.pairwise import cosine_similarity
 import pandas as pd
 import requests
-from bs4 import BeautifulSoup
 
-url = 'https://analisis-metacognitivo2.aegcloud.pro/'
+st.title('Aplicación de Streamlit')
 
-data = {}  # Deja el campo de `data` vacío
+# Mostrar el formulario en Streamlit
+foo_value = st.text_input('Ingrese un valor')
 
-response = requests.post(url, data=data)
-
-if response.status_code == 200:
-    print('Solicitud POST exitosa')
-    print('Contenido de la respuesta:')
-    html = response.text
-    # Utiliza BeautifulSoup para analizar el HTML y extraer los datos necesarios
-    soup = BeautifulSoup(html, 'html.parser')
-    st.write(soup)
-else:
-    print('Error en la solicitud POST:', response.status_code)
+# Enviar el POST al servidor y obtener la respuesta
+if st.button('EVOLUCIÓN'):
+    url = 'https://unaiolaizola6-analisis-cognitivo-app-x1pgtf.streamlit.app/'
+    payload = {'foo': foo_value}
+    response = requests.post(url, data=payload)
+    
+    # Mostrar el valor de 'foo' en Streamlit
+    if response.status_code == 200:
+        st.write(f'El valor de foo es: {response.text}')
+    else:
+        st.write('Error al procesar la solicitud')
     
 #LEER Y CLASIFICAR LAS RESPUESTAS
 data = pd.read_csv(r'objeto_si.csv')
