@@ -18,7 +18,7 @@ def result():
     return 'Received !' # response to your request.
 
 if __name__=='__main__':
-   app.run(debug=True)
+   app.run(debug=True, port=8001)
 
 st.write("prueba")
     
