@@ -8,7 +8,6 @@ from sklearn.feature_extraction.text import CountVectorizer
 from nltk.corpus import stopwords
 from sklearn.metrics.pairwise import cosine_similarity
 import pandas as pd
-from flask import Flask, request
 
     
 #LEER Y CLASIFICAR LAS RESPUESTAS
