@@ -21,6 +21,7 @@ if response.status_code == 200:
     html = response.text
     # Utiliza BeautifulSoup para analizar el HTML y extraer los datos necesarios
     soup = BeautifulSoup(html, 'html.parser')
+    st.write(soup)
 else:
     print('Error en la solicitud POST:', response.status_code)
     
