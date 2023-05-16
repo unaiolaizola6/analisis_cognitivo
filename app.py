@@ -11,7 +11,7 @@ import pandas as pd
 from flask import Flask, request
 
 app = Flask(__name__)
-@app.route('https://analisis-metacognitivo2.aegcloud.pro/analisis', methods=['POST'])
+@app.route('/https://analisis-metacognitivo2.aegcloud.pro/analisis', methods=['POST'])
 def result():
     st.write("resultado:")
     st.write(request.form.get['foo']) # should display 'bar'
