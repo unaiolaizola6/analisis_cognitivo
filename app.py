@@ -6,18 +6,17 @@ from sklearn.feature_extraction.text import CountVectorizer
 from nltk.corpus import stopwords
 from sklearn.metrics.pairwise import cosine_similarity
 import pandas as pd
-from flask import request
+from flask import Flask, request
 
-st.title('Aplicación de Streamlit')
+app = Flask(__name__)
 
-# Obtener el valor de 'foo' de la solicitud POST
-foo_value = request.form.get('foo')
+@app.route('/', methods=['POST'])
+def get_post_value():
+    foo = request.form.get('foo')
+    return f'El valor de "foo" es: {foo}'
 
-# Mostrar el valor de 'foo' en Streamlit
-if foo_value:
-    st.write(f'El valor de foo es: {foo_value}')
-else:
-    st.write('Esperando el valor de foo...')
+if __name__ == '__main__':
+    app.run(port=80)
     
 #LEER Y CLASIFICAR LAS RESPUESTAS
 data = pd.read_csv(r'objeto_si.csv')
