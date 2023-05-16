@@ -16,7 +16,7 @@ def result():
     st.write(request.form['foo']) # should display 'bar'
     return 'Received !' # response to your request.
 
-app.run()
+
 st.text(st.write("prueba"))
     
 #LEER Y CLASIFICAR LAS RESPUESTAS
