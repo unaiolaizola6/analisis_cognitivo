@@ -17,7 +17,7 @@ def result():
     return 'Received !' # response to your request.
 
 
-st.text(st.write("prueba"))
+st.write("prueba")
     
 #LEER Y CLASIFICAR LAS RESPUESTAS
 data = pd.read_csv(r'objeto_si.csv')
