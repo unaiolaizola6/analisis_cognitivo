@@ -10,7 +10,7 @@ import requests
 
 url = 'https://analisis-metacognitivo2.aegcloud.pro/'
 
-data = {}
+data = {'foo': 'valor'}
 
 response = requests.post(url, data=data)
 
