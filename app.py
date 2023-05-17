@@ -8,7 +8,19 @@ from sklearn.feature_extraction.text import CountVectorizer
 from nltk.corpus import stopwords
 from sklearn.metrics.pairwise import cosine_similarity
 import pandas as pd
+from flask import Flask, request
 
+app = Flask(__name__)
+
+@app.route('/recibir-formulario', methods=['POST'])
+def recibir_formulario():
+    datos_recibidos = request.form
+    st.write(datos_recibidos)
+
+    return '¡Datos recibidos correctamente!'
+
+if __name__ == '__main__':
+    app.run()
     
 #LEER Y CLASIFICAR LAS RESPUESTAS
 data = pd.read_csv(r'objeto_si.csv')
