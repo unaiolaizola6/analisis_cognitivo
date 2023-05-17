@@ -8,22 +8,11 @@ from sklearn.feature_extraction.text import CountVectorizer
 from nltk.corpus import stopwords
 from sklearn.metrics.pairwise import cosine_similarity
 import pandas as pd
-import requests
+import cgi
 
-url = 'https://analisis-metacognitivo2.aegcloud.pro/'
-
-valor_ingresado = st.text_input("Ingrese un valor")  # Obtener el valor ingresado por el usuario
-
-data = {'foo': valor_ingresado}  # Agregar el valor ingresado al diccionario 'data'
-
-response = requests.post(url, data=data)
-
-if response.status_code == 200:
-    st.write('Solicitud POST exitosa')
-    st.write('Contenido de la respuesta:')
-    st.write(response)
-else:
-    st.write('Error en la solicitud POST:', response.status_code)
+formulario = cgi.FieldStorage()
+nombre = formulario.getvalue('nombre')
+st.write(nombre)
     
 #LEER Y CLASIFICAR LAS RESPUESTAS
 data = pd.read_csv(r'objeto_si.csv')
