@@ -11,8 +11,8 @@ import pandas as pd
 import cgi
 
 formulario = cgi.FieldStorage()
-nombre = formulario.getvalue('nombre')
-st.write(nombre)
+
+st.write(formulario['nombre'].value)
     
 #LEER Y CLASIFICAR LAS RESPUESTAS
 data = pd.read_csv(r'objeto_si.csv')
