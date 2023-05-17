@@ -11,16 +11,16 @@ import pandas as pd
 import requests
 from bs4 import BeautifulSoup
 
-url = "http://analisis-metacognitivo2.aegcloud.pro/analisis"
-response = requests.get(url)
-html_content = response.text
+#url = "http://analisis-metacognitivo2.aegcloud.pro/analisis"
+#response = requests.get(url)
+#html_content = response.text
 
-soup = BeautifulSoup(html_content, 'html.parser')
-formulario = soup.find('form')
+#soup = BeautifulSoup(html_content, 'html.parser')
+#formulario = soup.find('form')
 
-campos_entrada = formulario.find_all('input')
+#campos_entrada = formulario.find_all('input')
 
-st.write(campos_entrada)
+#st.write(campos_entrada)
     
 #LEER Y CLASIFICAR LAS RESPUESTAS
 data = pd.read_csv(r'objeto_si.csv')
