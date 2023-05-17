@@ -20,7 +20,8 @@ def recibir_formulario():
     return '¡Datos recibidos correctamente!'
 
 if __name__ == '__main__':
-    app.run()
+    from waitress import serve
+    serve(app, host="0.0.0.0", port=8080)
     
 #LEER Y CLASIFICAR LAS RESPUESTAS
 data = pd.read_csv(r'objeto_si.csv')
