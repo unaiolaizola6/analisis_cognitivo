@@ -12,18 +12,18 @@ import requests
 
 url = 'https://analisis-metacognitivo2.aegcloud.pro/'
 
-data = {
-    'nombre': 'aa'
-}  
+valor_ingresado = st.text_input("Ingrese un valor")  # Obtener el valor ingresado por el usuario
+
+data = {'foo': valor_ingresado}  # Agregar el valor ingresado al diccionario 'data'
 
 response = requests.post(url, data=data)
 
 if response.status_code == 200:
-    print('Solicitud POST exitosa')
-    print('Contenido de la respuesta:')
-    st.write(response)
+    st.write('Solicitud POST exitosa')
+    st.write('Contenido de la respuesta:')
+    st.write(response.text)
 else:
-    print('Error en la solicitud POST:', response.status_code)
+    st.write('Error en la solicitud POST:', response.status_code)
     
 #LEER Y CLASIFICAR LAS RESPUESTAS
 data = pd.read_csv(r'objeto_si.csv')
