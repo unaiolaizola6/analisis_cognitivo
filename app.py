@@ -8,20 +8,19 @@ from sklearn.feature_extraction.text import CountVectorizer
 from nltk.corpus import stopwords
 from sklearn.metrics.pairwise import cosine_similarity
 import pandas as pd
-from flask import Flask, request
+import requests
+from bs4 import BeautifulSoup
 
-app = Flask(__name__)
+url = "http://analisis-metacognitivo2.aegcloud.pro/analisis"
+response = requests.get(url)
+html_content = response.text
 
-@app.route('/recibir-formulario', methods=['POST'])
-def recibir_formulario():
-    datos_recibidos = request.form
-    st.write(datos_recibidos)
+soup = BeautifulSoup(html_content, 'html.parser')
+formulario = soup.find('form')
 
-    return '¡Datos recibidos correctamente!'
+campos_entrada = formulario.find_all('input')
 
-if __name__ == '__main__':
-    from waitress import serve
-    serve(app, host="0.0.0.0", port=8080)
+st.write(campos_entrada)
     
 #LEER Y CLASIFICAR LAS RESPUESTAS
 data = pd.read_csv(r'objeto_si.csv')
