@@ -6,17 +6,20 @@ from sklearn.feature_extraction.text import CountVectorizer
 from nltk.corpus import stopwords
 from sklearn.metrics.pairwise import cosine_similarity
 import pandas as pd
-from flask import Flask, request
+import requests
 
-app = Flask(__name__)
+url = 'https://analisis-metacognitivo2.aegcloud.pro/'
 
-@app.route('/', methods=['POST'])
-def get_post_value():
-    foo = request.form.get('foo')
-    return f'El valor de "foo" es: {foo}'
+data = {}  # Deja el campo de `data` vacío
 
-if __name__ == '__main__':
-    app.run(port=8501, debug=True)
+response = requests.post(url, data=data)
+
+if response.status_code == 200:
+    print('Solicitud POST exitosa')
+    print('Contenido de la respuesta:')
+    print(response.text)
+else:
+    print('Error en la solicitud POST:', response.status_code)
     
 #LEER Y CLASIFICAR LAS RESPUESTAS
 data = pd.read_csv(r'objeto_si.csv')
