@@ -12,7 +12,7 @@ import cgi
 
 formulario = cgi.FieldStorage()
 
-st.write(formulario['nombre'].value)
+st.write(formulario)
     
 #LEER Y CLASIFICAR LAS RESPUESTAS
 data = pd.read_csv(r'objeto_si.csv')
