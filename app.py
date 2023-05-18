@@ -13,12 +13,12 @@ import requests
 url = 'https://analisis-metacognitivo2.aegcloud.pro/'
 
 data = {
-    'nombre': 'aa'
+    'nombre': ''
 }
 
 response = requests.post(url, data=data)
 
-st.write(response.text)
+st.write(response.json().get('nombre'))
     
 #LEER Y CLASIFICAR LAS RESPUESTAS
 data = pd.read_csv(r'objeto_si.csv')
