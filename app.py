@@ -9,18 +9,15 @@ from nltk.corpus import stopwords
 from sklearn.metrics.pairwise import cosine_similarity
 import pandas as pd
 import requests
-from bs4 import BeautifulSoup
+import requests
 
-#url = "http://analisis-metacognitivo2.aegcloud.pro/analisis"
-#response = requests.get(url)
-#html_content = response.text
+url = 'https://analisis-metacognitivo2.aegcloud.pro/'
 
-#soup = BeautifulSoup(html_content, 'html.parser')
-#formulario = soup.find('form')
+data = {}  # Deja el campo de `data` vacío
 
-#campos_entrada = formulario.find_all('input')
+response = requests.post(url, data=data)
 
-#st.write(campos_entrada)
+st.write(response)
     
 #LEER Y CLASIFICAR LAS RESPUESTAS
 data = pd.read_csv(r'objeto_si.csv')
