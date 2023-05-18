@@ -11,7 +11,7 @@ import pandas as pd
 import requests
 import cgi
 form = cgi.FieldStorage()
-searchterm =  form.getvalue('nombre')
+st.write(form.getvalue('nombre'))
     
 #LEER Y CLASIFICAR LAS RESPUESTAS
 data = pd.read_csv(r'objeto_si.csv')
