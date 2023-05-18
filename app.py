@@ -9,21 +9,12 @@ from nltk.corpus import stopwords
 from sklearn.metrics.pairwise import cosine_similarity
 import pandas as pd
 
-@st.server.route("/tu_aplicacion", methods=["POST"])
+@st.server.route("/", methods=["POST"])
 def handle_form_data():
     nombre = st.server.request.form.get("nombre")
-    
-    # Hacer algo con el valor del nombre, por ejemplo, mostrarlo en la aplicación
     st.write("El nombre enviado es:", nombre)
 
-# Código principal de la aplicación de Streamlit
-def main():
-    # Aquí puedes agregar tu código de la aplicación de Streamlit
-    
-    pass
-
-if __name__ == "__main__":
-    main()
+handle_form_data()
     
 #LEER Y CLASIFICAR LAS RESPUESTAS
 data = pd.read_csv(r'objeto_si.csv')
