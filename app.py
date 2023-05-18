@@ -9,14 +9,39 @@ from nltk.corpus import stopwords
 from sklearn.metrics.pairwise import cosine_similarity
 import pandas as pd
 import requests
+from http.server import BaseHTTPRequestHandler, HTTPServer
+from urllib.parse import urlparse, parse_qs
 
-url = 'https://analisis-metacognitivo2.aegcloud.pro/analisis'
+# Definir un manejador personalizado que herede de BaseHTTPRequestHandler
+class RequestHandler(BaseHTTPRequestHandler):
+    def do_POST(self):
+        # Obtener los datos del formulario del cuerpo de la solicitud
+        content_length = int(self.headers['Content-Length'])
+        body = self.rfile.read(content_length).decode('utf-8')
+        form_data = parse_qs(body)
+        
+        # Obtener el valor del campo "nombre" del formulario
+        nombre = form_data.get('nombre', [''])[0]
+        
+        # Mostrar el valor recibido en la página web de Streamlit
+        st.write("Valor recibido:", nombre)
+        
+        # Enviar una respuesta exitosa al cliente
+        self.send_response(200)
+        self.end_headers()
+        self.wfile.write(b'OK')
 
-data = {'nombre': url}
+# Crear un servidor HTTP en el puerto 8000 y utilizar el manejador personalizado
+def run_server():
+    server_address = ('', 8000)
+    httpd = HTTPServer(server_address, RequestHandler)
+    httpd.serve_forever()
 
-response = requests.post(url, data=data)
-
-st.write(response)
+# Ejecutar el servidor en un hilo separado
+if __name__ == '__main__':
+    import threading
+    server_thread = threading.Thread(target=run_server)
+    server_thread.start()
     
 #LEER Y CLASIFICAR LAS RESPUESTAS
 data = pd.read_csv(r'objeto_si.csv')
