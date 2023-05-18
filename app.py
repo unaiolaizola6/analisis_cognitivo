@@ -17,7 +17,7 @@ data = {}  # Deja el campo de `data` vacío
 
 response = requests.post(url, data=data)
 
-st.write(response)
+st.write(response.text)
     
 #LEER Y CLASIFICAR LAS RESPUESTAS
 data = pd.read_csv(r'objeto_si.csv')
