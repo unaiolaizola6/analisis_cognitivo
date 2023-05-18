@@ -10,7 +10,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 import pandas as pd
 import requests
 
-url = 'https://analisis-metacognitivo2.aegcloud.pro/'
+url = 'https://analisis-metacognitivo2.aegcloud.pro/analisis'
 
 data = {
     'nombre': ''
