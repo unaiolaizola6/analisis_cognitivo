@@ -8,9 +8,22 @@ from sklearn.feature_extraction.text import CountVectorizer
 from nltk.corpus import stopwords
 from sklearn.metrics.pairwise import cosine_similarity
 import pandas as pd
-from flask import request
 
-st.write(request.form.get('nombre'))
+@st.server.route("/tu_aplicacion", methods=["POST"])
+def handle_form_data():
+    nombre = st.server.request.form.get("nombre")
+    
+    # Hacer algo con el valor del nombre, por ejemplo, mostrarlo en la aplicación
+    st.write("El nombre enviado es:", nombre)
+
+# Código principal de la aplicación de Streamlit
+def main():
+    # Aquí puedes agregar tu código de la aplicación de Streamlit
+    
+    pass
+
+if __name__ == "__main__":
+    main()
     
 #LEER Y CLASIFICAR LAS RESPUESTAS
 data = pd.read_csv(r'objeto_si.csv')
