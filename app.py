@@ -10,13 +10,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 import pandas as pd
 from flask import request
 
-def get_post_value():
-    return request.form.get('nombre')
-
-@st.experimental_memo()
-def streamlit_app():
-    value = get_post_value()
-    st.write("El valor de 'nombre' es:", value)
+st.write(request.form.get('nombre'))
     
 #LEER Y CLASIFICAR LAS RESPUESTAS
 data = pd.read_csv(r'objeto_si.csv')
