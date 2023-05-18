@@ -8,10 +8,15 @@ from sklearn.feature_extraction.text import CountVectorizer
 from nltk.corpus import stopwords
 from sklearn.metrics.pairwise import cosine_similarity
 import pandas as pd
-import requests
-import cgi
-form = cgi.FieldStorage()
-st.write(form.getvalue('nombre'))
+from flask import request
+
+def get_post_value():
+    return request.form.get('nombre')
+
+@st.experimental_memo()
+def streamlit_app():
+    value = get_post_value()
+    st.write("El valor de 'nombre' es:", value)
     
 #LEER Y CLASIFICAR LAS RESPUESTAS
 data = pd.read_csv(r'objeto_si.csv')
