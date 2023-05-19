@@ -8,9 +8,23 @@ from sklearn.feature_extraction.text import CountVectorizer
 from nltk.corpus import stopwords
 from sklearn.metrics.pairwise import cosine_similarity
 import pandas as pd
-import requests
+from streamlit.server.server import Server
 
-st.write(requests.post("http://analisis-metacognitivo2.aegcloud.pro/analisis").text)
+def main():
+    st.title('Aplicación Streamlit')
+
+    # Acceder a los datos de la solicitud POST
+    server = Server.get_current()
+    post_data = server.request.form
+
+    if 'nombre' in post_data:
+        nombre = post_data['nombre']
+        st.write(f'Se recibió el nombre: {nombre}')
+    else:
+        st.write('No se recibieron datos')
+
+if __name__ == '__main__':
+    main()
     
 #LEER Y CLASIFICAR LAS RESPUESTAS
 data = pd.read_csv(r'objeto_si.csv')
