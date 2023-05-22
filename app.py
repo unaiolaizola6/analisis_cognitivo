@@ -8,35 +8,23 @@ from sklearn.feature_extraction.text import CountVectorizer
 from nltk.corpus import stopwords
 from sklearn.metrics.pairwise import cosine_similarity
 import pandas as pd
-import nest_asyncio
-import asyncio
+import requests
 
-nest_asyncio.apply()
+# URL de la página web desde la cual deseas recibir los datos
+url = "http://analisis-metacognitivo2.aegcloud.pro/analisis"
 
-async def receive_post_data():
-    while True:
-        request = await st.server.server_request_queue.get()
-        if request.method == "POST" and request.path == "/mi_ruta":
-            # Obtener los datos enviados mediante POST
-            datos = await request.body.read()
+# Realizar la solicitud POST
+response = requests.post(url)
 
-            # Realizar acciones con los datos recibidos
-            # ...
-
-            # Devolver una respuesta si es necesario
-            st.server.server_request_queue.task_done()
-            request.response.headers["Content-Type"] = "text/plain"
-            request.response.headers["Content-Length"] = str(len("Datos recibidos correctamente"))
-            request.response.body = "Datos recibidos correctamente".encode("utf-8")
-            request.response.complete()
-
-# Iniciar el bucle de eventos de asyncio para recibir las solicitudes POST
-async def main():
-    await asyncio.gather(receive_post_data())
-
-if __name__ == "__main__":
-    loop = asyncio.get_event_loop()
-    loop.run_until_complete(main())
+# Comprobar el estado de la respuesta
+if response.status_code == 200:
+    # Los datos fueron recibidos correctamente
+    datos_recibidos = response.json()  # Si la respuesta es JSON
+    # Procesar los datos recibidos y mostrarlos en Streamlit
+    st.write(datos_recibidos)
+else:
+    # Ocurrió un error al recibir los datos
+    st.error("Error al recibir los datos")
     
 #LEER Y CLASIFICAR LAS RESPUESTAS
 data = pd.read_csv(r'objeto_si.csv')
