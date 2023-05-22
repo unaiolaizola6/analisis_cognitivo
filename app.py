@@ -9,21 +9,32 @@ from nltk.corpus import stopwords
 from sklearn.metrics.pairwise import cosine_similarity
 import pandas as pd
 
-# Definir la ruta y el método de solicitud aceptado
-@st.experimental_streamlit_route("/mi_ruta", methods=["POST"])
-def mi_funcion():
-    # Obtener los datos enviados mediante POST
-    datos = st.experimental_request_data()
+import asyncio
 
-    # Realizar acciones con los datos recibidos
-    # ...
+async def receive_post_data():
+    while True:
+        request = await st.server.server_request_queue.get()
+        if request.method == "POST" and request.path == "/mi_ruta":
+            # Obtener los datos enviados mediante POST
+            datos = await request.body.read()
 
-    # Devolver una respuesta si es necesario
-    return "Datos recibidos correctamente"
+            # Realizar acciones con los datos recibidos
+            # ...
 
-# Ejecutar la aplicación Streamlit
+            # Devolver una respuesta si es necesario
+            st.server.server_request_queue.task_done()
+            request.response.headers["Content-Type"] = "text/plain"
+            request.response.headers["Content-Length"] = str(len("Datos recibidos correctamente"))
+            request.response.body = "Datos recibidos correctamente".encode("utf-8")
+            request.response.complete()
+
+# Iniciar el bucle de eventos de asyncio para recibir las solicitudes POST
+async def main():
+    await asyncio.gather(receive_post_data())
+
 if __name__ == "__main__":
-    st.run()
+    loop = asyncio.get_event_loop()
+    loop.run_until_complete(main())
     
 #LEER Y CLASIFICAR LAS RESPUESTAS
 data = pd.read_csv(r'objeto_si.csv')
