@@ -8,23 +8,22 @@ from sklearn.feature_extraction.text import CountVectorizer
 from nltk.corpus import stopwords
 from sklearn.metrics.pairwise import cosine_similarity
 import pandas as pd
-from streamlit.server.server import Server
 
-def main():
-    st.title('Aplicación Streamlit')
+# Definir la ruta y el método de solicitud aceptado
+@st.experimental_streamlit_route("/mi_ruta", methods=["POST"])
+def mi_funcion():
+    # Obtener los datos enviados mediante POST
+    datos = st.experimental_request_data()
 
-    # Acceder a los datos de la solicitud POST
-    server = Server.get_current()
-    post_data = server.request.form
+    # Realizar acciones con los datos recibidos
+    # ...
 
-    if 'nombre' in post_data:
-        nombre = post_data['nombre']
-        st.write(f'Se recibió el nombre: {nombre}')
-    else:
-        st.write('No se recibieron datos')
+    # Devolver una respuesta si es necesario
+    return "Datos recibidos correctamente"
 
-if __name__ == '__main__':
-    main()
+# Ejecutar la aplicación Streamlit
+if __name__ == "__main__":
+    st.run()
     
 #LEER Y CLASIFICAR LAS RESPUESTAS
 data = pd.read_csv(r'objeto_si.csv')
