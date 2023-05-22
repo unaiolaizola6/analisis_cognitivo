@@ -14,7 +14,7 @@ import asyncio
 async def receive_post_data():
     while True:
         request = await st.server.server_request_queue.get()
-        if request.method == "POST" and request.path == "/mi_ruta":
+        if request.method == "POST" and request.path == "/http://analisis-metacognitivo2.aegcloud.pro/analisis":
             # Obtener los datos enviados mediante POST
             datos = await request.body.read()
 
