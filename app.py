@@ -8,13 +8,15 @@ from sklearn.feature_extraction.text import CountVectorizer
 from nltk.corpus import stopwords
 from sklearn.metrics.pairwise import cosine_similarity
 import pandas as pd
-
+import nest_asyncio
 import asyncio
+
+nest_asyncio.apply()
 
 async def receive_post_data():
     while True:
         request = await st.server.server_request_queue.get()
-        if request.method == "POST" and request.path == "/http://analisis-metacognitivo2.aegcloud.pro/analisis":
+        if request.method == "POST" and request.path == "/mi_ruta":
             # Obtener los datos enviados mediante POST
             datos = await request.body.read()
 
