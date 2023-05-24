@@ -9,20 +9,7 @@ from nltk.corpus import stopwords
 from sklearn.metrics.pairwise import cosine_similarity
 import pandas as pd
 
-# Obtener los parámetros enviados en la URL
-params = st.experimental_get_query_params()
-nombre = params.get("nombre", [""])[0]
 
-# Mostrar el campo de entrada para el nombre
-nombre_input = st.text_input("Nombre", value=nombre)
-
-# Actualizar la URL con el valor ingresado en el campo de entrada
-if nombre_input != nombre:
-    st.experimental_set_query_params(nombre=nombre_input)
-
-# Mostrar los datos recibidos
-if nombre_input:
-    st.write(f"El nombre recibido es: {nombre_input}")
     
 #LEER Y CLASIFICAR LAS RESPUESTAS
 data = pd.read_csv(r'objeto_si.csv')
